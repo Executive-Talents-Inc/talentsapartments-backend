@@ -4,11 +4,13 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import helmet from 'helmet';
-import { Sequelize } from 'sequelize-typescript'; // Import Sequelize here
+import { Sequelize } from 'sequelize-typescript';
 
 async function bootstrap() {
   const logger = new Logger('bootstrap');
+  
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
   const sequelize: Sequelize = app.get(Sequelize);
   try {
     await sequelize.authenticate();

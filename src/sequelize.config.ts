@@ -3,7 +3,6 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-
 export const sequelizeConfig: SequelizeModuleOptions = {
 dialect: 'postgres', 
   host: process.env.DATABASE_HOST, 
