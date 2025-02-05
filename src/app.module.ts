@@ -8,8 +8,6 @@ import { TalentscholarModule } from './modules/talentscholar/talentscholar.modul
 import { SequelizeModule } from '@nestjs/sequelize';
 import { sequelizeConfig } from './sequelize.config';
 
-
-
 @Module({
   imports: [
     SequelizeModule.forRoot(sequelizeConfig),

@@ -8,7 +8,7 @@ import { Sequelize } from 'sequelize-typescript';
 
 async function bootstrap() {
   const logger = new Logger('bootstrap');
-  
+
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   const sequelize: Sequelize = app.get(Sequelize);
@@ -41,9 +41,11 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, documentationOptions);
   SwaggerModule.setup('api/docs', app, document);
 
-  const PORT = process.env.PORT || 3000; 
+  const PORT = process.env.PORT || 3000;
   await app.listen(PORT, () => {
-    logger.log(`\n\nApplication listening on port ${PORT}. Talent Apartments 🚀`);
+    logger.log(
+      `\n\nApplication listening on port ${PORT}. Talent Apartments 🚀`,
+    );
   });
 }
 bootstrap();
