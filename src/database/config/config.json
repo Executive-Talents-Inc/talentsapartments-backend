@@ -1,23 +1,39 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
+    "username": "postgres",
+    "password": "0987654321",
+    "database": "Talentdb",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "productionlocal": {
+    "username": "u4fngtfj9agbaq",
+    "password": "pb10e051c6e5a6ec3559d7916747c10ba890088c62782b9c41c4b93b2a57122e0",
+    "database": "d2u2umbqt5ipfk",
+    "host": "cc0gj7hsrh0ht8.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+          "rejectUnauthorized": false
+       }
+    }
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+          "rejectUnauthorized": false
+       }
+    }
   }
 }
+
