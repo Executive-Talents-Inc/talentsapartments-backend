@@ -47,10 +47,6 @@ export class User extends Model<User> {
   @Column({ type: DataType.STRING })
   id: string;
 
-  @Unique
-  @Column({ allowNull: false })
-  user_name: string;
-
   @Column({ type: DataType.TEXT })
   first_name: string;
 
@@ -78,7 +74,7 @@ export class User extends Model<User> {
 
   @Default(false)
   @Column({ type: DataType.BOOLEAN })
-  is_super_user: boolean;
+  is_super_admin: boolean;
 
   @Default(false)
   @Column({ type: DataType.BOOLEAN })

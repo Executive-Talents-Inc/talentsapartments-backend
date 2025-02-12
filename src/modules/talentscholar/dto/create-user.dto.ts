@@ -30,11 +30,7 @@ export class CreateUserDto {
 
   @IsOptional()
   @IsBoolean()
-  is_super_user?: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  is_verified?: boolean;
+  is_super_admin?: boolean;
 
   @IsOptional()
   @IsString()

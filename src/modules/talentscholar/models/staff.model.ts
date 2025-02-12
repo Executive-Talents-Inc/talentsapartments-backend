@@ -108,9 +108,13 @@ export class Staffs extends Model<Staffs> {
   @Column({ type: DataType.ENUM(...Object.values(UserStatus)) })
   status: UserStatus;
 
-  @Default(UserRoles.APPLICANT)
+  @Default(UserRoles.STAFF)
   @Column({ type: DataType.ENUM(...Object.values(UserRoles)) })
   role: UserRoles;
+
+  @Default(false)
+  @Column({ type: DataType.BOOLEAN })
+  is_super_user: boolean;
 
   @Column({ type: DataType.DATE })
   last_login: Date;
