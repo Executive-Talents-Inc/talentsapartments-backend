@@ -3,6 +3,7 @@ import { Country } from './country.model';
 import { State } from './state.model';
 import { User } from '../../iam/models/iam.model';
 import { SnowflakeIdGenerator } from '../../../utils/idGenerator';
+import { DataTypes } from 'sequelize';
 const snowflakeIdGenerator = new SnowflakeIdGenerator();
 export enum UserStatus {
   ACTIVE = 'active',
@@ -36,9 +37,10 @@ export class Staffs extends Model<Staffs> {
     id: string;
       
   @ForeignKey(() => User)
-  @Column
-  createdBy: number;
+  @Column({ allowNull: false, type: DataType.STRING })
+  createdBy: string;
 
+  
   @Unique
   @Column({ allowNull: false })
   staff_id: string;
@@ -108,13 +110,9 @@ export class Staffs extends Model<Staffs> {
   @Column({ type: DataType.ENUM(...Object.values(UserStatus)) })
   status: UserStatus;
 
-  @Default(UserRoles.STAFF)
+  @Default(UserRoles.APPLICANT)
   @Column({ type: DataType.ENUM(...Object.values(UserRoles)) })
   role: UserRoles;
-
-  @Default(false)
-  @Column({ type: DataType.BOOLEAN })
-  is_super_user: boolean;
 
   @Column({ type: DataType.DATE })
   last_login: Date;

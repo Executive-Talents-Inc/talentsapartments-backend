@@ -20,7 +20,6 @@ const snowflakeIdGenerator = new SnowflakeIdGenerator();
 @Injectable()
 export class IamService {
   private readonly logger = new Logger(IamService.name);
-  private verifiedUsers = new Map<string, boolean>();
 
   constructor(
     @InjectModel(User) private readonly userModel: typeof User,

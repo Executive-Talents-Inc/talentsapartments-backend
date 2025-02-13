@@ -42,7 +42,7 @@ export class TalentscholarService {
     return school;
   }
   
-  async createAdmissionOfficer(dto: CreateUserDto, createdById: number): Promise<Staffs> {
+  async createAdmissionOfficer(dto: CreateUserDto, createdById: string): Promise<Staffs> {
     const creator = await this.userModel.findByPk(createdById);
 
     if (!creator) {
@@ -57,7 +57,6 @@ export class TalentscholarService {
     if (existingUser) {
         throw new ConflictException('An Admission Officer with this email already exists.');
     }
-
     const hashedPassword = await bcrypt.hash(dto.password, 10);
 
     const prefix = 'AD'; 
@@ -74,7 +73,7 @@ export class TalentscholarService {
           createdBy: createdById,
       });
   } catch (error) {
-      throw new InternalServerErrorException('Failed to create Admission Officer.');
+      throw new InternalServerErrorException(error,'Failed to create Admission Officer.');
   }
   
 }

@@ -1,18 +1,12 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { CreateSuperAdminDto } from './dto/create-super-admin.dto';
 import { IamService } from './iam.service';
-import { User } from './models/iam.model';
 
 @Controller('iam')
 export class IamController {
   constructor(private readonly iamService: IamService) {}
 
-  // @Post('create-super-admin')
-  // async createSuperAdmin(@Body() dto: CreateSuperAdminDto): Promise<User> {
-  //   return this.iamService.createSuperAdmin(dto);
-  // }
-
-
+ 
   @Post('create-super-admin')
 async createSuperAdmin(@Body() dto: CreateSuperAdminDto) {
   return this.iamService.createSuperAdmin(dto);
